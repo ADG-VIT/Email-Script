@@ -2,9 +2,13 @@ import smtplib, ssl, csv
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.utils import formataddr
+from time import sleep
 
 sender_email = input("Type your email and press enter:")
 password = input("Type your password and press enter:")
+
+# sender_email = ''
+# password = ''
 
 message = MIMEMultipart("alternative")
 
@@ -67,25 +71,37 @@ context = ssl.create_default_context()
 with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
     server.login(sender_email, password)
 
-    with open('result.csv', 'w', newline='') as result_file:
-        writer = csv.writer(result_file)
+    with open('success.csv', 'w', newline='') as successful_file, open('failure.csv', 'w', newline='') as unsuccessful_file:
+        success = csv.writer(successful_file)
+        failure = csv.writer(unsuccessful_file)
 
-        with open("Apple Developers Group.csv") as file:
+        with open("input.csv") as file:
             reader = csv.reader(file)
 
             # next(reader)  # Skip header row
 
+            count = 0
+
             for regno, email in reader:
+
+                if(count >= 75):
+                    sleep(150)
+                    count = 0
+
+                count += 1
+                
                 try:
                     server.sendmail(
                         sender_email,
                         email,
                         message.as_string()
                     )
-                    writer.writerow([regno, email, 'Successful'])
-                    print('Successful')
+                    success.writerow([regno, email, 'Successful'])
+                    print(count, 'Successful', email)
                 except:
-                    writer.writerow([regno, email, 'Unsuccessful'])
-                    print('Unsuccessful')
+                    failure.writerow([regno, email, 'Unsuccessful'])
+                    print(count, 'Unsuccessful', email)
+                    sleep(150)
+                    count = 0
 
         
