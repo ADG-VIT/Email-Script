@@ -11,7 +11,7 @@ from email.utils import formataddr
 message = MIMEMultipart("alternative")
 
 # ENTER SUBJECT OF MAIL
-message["Subject"] = "ADG Mobile Application Launch 📱"
+message["Subject"] = "Christmas Surprise 🎅 🎄"
 
 message['From'] = formataddr(('Apple Developers Group VIT', sender_email))
 
@@ -21,9 +21,10 @@ html = """\
   <body>
   
     <h1> Hi  </h1><br>
-    <center><img height="500px" width=500px" src="https://raw.githubusercontent.com/ADG-VIT/Email-Script/master/POSTER.png"></center>
+    <center><img height="1000px" width=1000px" src="https://raw.githubusercontent.com/ADG-VIT/Email-Script/master/app_launch.png"></center>
 
     <div style="background-color:#191919; color: white; padding: 5px; padding-left: 10px; padding-right: 10px; border-radius: 5px;">
+        <img src="https://raw.githubusercontent.com/ADG-VIT/Email-Script/master/adglogo.png">
         <h4>ABOUT<h4>
         <p style="font-weight: normal; padding-left: 10px;">Apple Developers Group (ADG) is a name synonymous with excellence, simplicity and dedication. It is a registered student community at VIT, Vellore established under the Apple University program. A coterie of talented minds seeking not just success but perfection.</p>
 
