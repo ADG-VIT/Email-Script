@@ -3,10 +3,8 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.utils import formataddr
 
-# sender_email = input("Type your email and press enter:")
-# password = input("Type your password and press enter:")
-
-
+sender_email = input("Type your email and press enter:")
+password = input("Type your password and press enter:")
 
 message = MIMEMultipart("alternative")
 
@@ -20,11 +18,27 @@ html = """\
 <html>
   <body>
   
-    <h1> Hi  </h1><br>
-    <center><img height="1000px" width=1000px" src="https://raw.githubusercontent.com/ADG-VIT/Email-Script/master/app_launch.png"></center>
-
-    <div style="background-color:#191919; color: white; padding: 5px; padding-left: 10px; padding-right: 10px; border-radius: 5px;">
-        <img src="https://raw.githubusercontent.com/ADG-VIT/Email-Script/master/adglogo.png">
+    <h2>Sending you something to go fa la la about 🎁</h2>
+    <h3 style="font-weight:normal;"> We at <b>Apple Developers Group</b> are proud to announce the launch of our first of its kind mobile application.
+    <b>ADG-VIT</b> is an application build to give an insight of what this community holds for you. It is a one stop app for new recruitments, events, projects, FAQs related to various domains and a lot more!
+    Download the app now and be prepared for a journey that will cover all your expectations and take you to the unexplored realm of possibilities.
+    <br>
+    <br>
+    The ADG-VIT app is available on both <b>App Store</b> as well as the <b>Play Store.</b></h4>
+    <br>
+    <br>
+    <b>iOS: 📱</b> https://apps.apple.com/in/app/adg-vit/id1545733138
+    <br>
+    <b>Android: 📱</b> https://play.google.com/store/apps/details?id=com.adgvit.externals 
+    <br>
+    <br>
+    <br>
+    <center><img height="500px" width=500px" src="https://raw.githubusercontent.com/ADG-VIT/Email-Script/master/app_launch.png"></center>
+    <br>
+    <br>
+    <br>
+    <div style="background-color:#191919; color: white; padding-bottom: 10px; padding-top: 10px; padding-left: 10px; padding-right: 10px; border-radius: 5px;">
+        <center><img height="30px" src="https://raw.githubusercontent.com/ADG-VIT/Email-Script/master/adglogo.png"></center>
         <h4>ABOUT<h4>
         <p style="font-weight: normal; padding-left: 10px;">Apple Developers Group (ADG) is a name synonymous with excellence, simplicity and dedication. It is a registered student community at VIT, Vellore established under the Apple University program. A coterie of talented minds seeking not just success but perfection.</p>
 
@@ -56,20 +70,22 @@ with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
     with open('result.csv', 'w', newline='') as result_file:
         writer = csv.writer(result_file)
 
-        with open("input.csv") as file:
+        with open("Apple Developers Group.csv") as file:
             reader = csv.reader(file)
 
             # next(reader)  # Skip header row
 
-            for name, email in reader:
+            for regno, email in reader:
                 try:
                     server.sendmail(
                         sender_email,
                         email,
                         message.as_string()
                     )
-                    writer.writerow([email, 'Successful'])
+                    writer.writerow([regno, email, 'Successful'])
+                    print('Successful')
                 except:
-                    writer.writerow([email, 'Unsuccessful'])
+                    writer.writerow([regno, email, 'Unsuccessful'])
+                    print('Unsuccessful')
 
         
