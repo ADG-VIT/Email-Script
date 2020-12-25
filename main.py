@@ -2,10 +2,11 @@ import smtplib, ssl, csv
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.utils import formataddr
-from email.mime.image import MIMEImage
 
 # sender_email = input("Type your email and press enter:")
 # password = input("Type your password and press enter:")
+
+
 
 message = MIMEMultipart("alternative")
 
@@ -20,8 +21,7 @@ html = """\
   <body>
   
     <h1> Hi  </h1><br>
-    <center><img height="500px" width=500px" src="cid:image1"></center>
-    <br>
+    <center><img height="500px" width=500px" src="https://raw.githubusercontent.com/ADG-VIT/Email-Script/master/POSTER.png"></center>
 
     <div style="background-color:#191919; color: white; padding: 5px; padding-left: 10px; padding-right: 10px; border-radius: 5px;">
         <h4>ABOUT<h4>
@@ -45,14 +45,6 @@ part = MIMEText(html, "html")
 
 # Add HTML part to MIMEMultipart message
 message.attach(part)
-
-fp = open('./POSTER.png', 'rb')
-msgImage = MIMEImage(fp.read())
-fp.close()
-
-# Define the image's ID as referenced above
-msgImage.add_header('Content-ID', '<image1>')
-message.attach(msgImage)
 
 # Create secure connection with server and send email
 context = ssl.create_default_context()
