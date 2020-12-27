@@ -15,48 +15,483 @@ message = MIMEMultipart("alternative")
 # ENTER SUBJECT OF MAIL
 message["Subject"] = "💥 Recruitments 2020 it is! 💥"
 
-message['From'] = formataddr(('Apple Developers Group VIT', sender_email), 'Apple Developers Group VIT <noreply@adgvit.com>')
+message['From'] = formataddr(('Apple Developers Group VIT', sender_email))
 
 # Create the HTML version of your message
 html = """\
+<!DOCTYPE html>
 <html>
-  <body>
-  
-    <h2>Sending you something to go fa la la about 🎁</h2>
-    <h3 style="font-weight:normal;"> We at <b>Apple Developers Group</b> are proud to announce the launch of our first of its kind mobile application.
-    <b>ADG-VIT</b> is an application build to give an insight of what this community holds for you. It is a one stop app for new recruitments, events, projects, FAQs related to various domains and a lot more!
-    Download the app now and be prepared for a journey that will cover all your expectations and take you to the unexplored realm of possibilities.
-    <br>
-    <br>
-    The ADG-VIT app is available on both <b>App Store</b> as well as the <b>Play Store.</b></h4>
-    <br>
-    <br>
-    <b>iOS: 📱</b> https://apps.apple.com/in/app/adg-vit/id1545733138
-    <br>
-    <b>Android: 📱</b> https://play.google.com/store/apps/details?id=com.adgvit.externals 
-    <br>
-    <br>
-    <br>
-    <center><img height="500px" width=500px" src="https://raw.githubusercontent.com/ADG-VIT/Email-Script/master/app_launch.png"></center>
-    <br>
-    <br>
-    <br>
-    <div style="background-color:#191919; color: white; padding-bottom: 10px; padding-top: 10px; padding-left: 10px; padding-right: 10px; border-radius: 5px;">
-        <center><img height="30px" src="https://raw.githubusercontent.com/ADG-VIT/Email-Script/master/adglogo.png"></center>
-        <h4>ABOUT<h4>
-        <p style="font-weight: normal; padding-left: 10px;">Apple Developers Group (ADG) is a name synonymous with excellence, simplicity and dedication. It is a registered student community at VIT, Vellore established under the Apple University program. A coterie of talented minds seeking not just success but perfection.</p>
+  <head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <style type="text/css">
+      @media screen {
+        @font-face {
+          font-family: "Lato";
+          font-style: normal;
+          font-weight: 400;
+          src: local("Lato Regular"), local("Lato-Regular"),
+            url(https://fonts.gstatic.com/s/lato/v11/qIIYRU-oROkIk8vfvxw6QvesZW2xOQ-xsNqO47m55DA.woff)
+              format("woff");
+        }
 
-        <h4>SOCIAL</h4>
-        <ul style="line-height: 200%; padding-left: 10px; list-style: none;">
-            <li><a style="padding-left: 10px; color: white;" href="https://www.facebook.com/vitios/" target="_blank"><img src="https://raw.githubusercontent.com/ADG-VIT/ADG-Official-Website-2020/master/commonAssets/imgs/facebook-logo-min.png" style="width: 18px; height: 18px; float: left; overflow: hidden;"> Facebook</a></li>
-            <li><a style="padding-left: 10px; color: white;"  href="https://www.linkedin.com/company/adgvit/" target="_blank"><img src="https://raw.githubusercontent.com/ADG-VIT/ADG-Official-Website-2020/master/commonAssets/imgs/linkedin-logo-min.png" style="width: 18px; height: 18px; float: left; overflow: hidden;"> LinkedIn</a></li>
-            <li><a style="padding-left: 10px; color: white;"  href="https://www.instagram.com/adgvit/" target="_blank"><img src="https://raw.githubusercontent.com/ADG-VIT/ADG-Official-Website-2020/master/commonAssets/imgs/instagram-logo-min.png" style="width: 18px; height: 18px; float: left; overflow: hidden;"> Instagram</a></li>
-            <li><a style="padding-left: 10px; color: white;"  href="https://twitter.com/adgvit" target="_blank"><img src="https://raw.githubusercontent.com/ADG-VIT/ADG-Official-Website-2020/master/commonAssets/imgs/twitter-2-min.png" style="width: 18px; height: 18px; float: left; overflow: hidden;"> Twitter</a></li>
-        </ul>
-        <h5 align="center">Copyright © 2020 All rights reserved</h5>
+        @font-face {
+          font-family: "Lato";
+          font-style: normal;
+          font-weight: 700;
+          src: local("Lato Bold"), local("Lato-Bold"),
+            url(https://fonts.gstatic.com/s/lato/v11/qdgUG4U09HnJwhYI-uK18wLUuEpTyoUstqEm5AMlJo4.woff)
+              format("woff");
+        }
+
+        @font-face {
+          font-family: "Lato";
+          font-style: italic;
+          font-weight: 400;
+          src: local("Lato Italic"), local("Lato-Italic"),
+            url(https://fonts.gstatic.com/s/lato/v11/RYyZNoeFgb0l7W3Vu1aSWOvvDin1pK8aKteLpeZ5c0A.woff)
+              format("woff");
+        }
+
+        @font-face {
+          font-family: "Lato";
+          font-style: italic;
+          font-weight: 700;
+          src: local("Lato Bold Italic"), local("Lato-BoldItalic"),
+            url(https://fonts.gstatic.com/s/lato/v11/HkF_qI1x_noxlxhrhMQYELO3LdcAZYWl9Si6vvxL-qU.woff)
+              format("woff");
+        }
+      }
+
+      /* CLIENT-SPECIFIC STYLES */
+      body,
+      table,
+      td,
+      a {
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
+
+      table,
+      td {
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt;
+      }
+
+      img {
+        -ms-interpolation-mode: bicubic;
+      }
+
+      /* RESET STYLES */
+      img {
+        border: 0;
+        height: auto;
+        line-height: 100%;
+        outline: none;
+        text-decoration: none;
+      }
+
+      table {
+        border-collapse: collapse !important;
+      }
+
+      body {
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+      }
+
+      /* iOS BLUE LINKS */
+      a[x-apple-data-detectors] {
+        color: inherit !important;
+        text-decoration: none !important;
+        font-size: inherit !important;
+        font-family: inherit !important;
+        font-weight: inherit !important;
+        line-height: inherit !important;
+      }
+
+      /* MOBILE STYLES */
+      @media screen and (max-width: 600px) {
+        h1 {
+          font-size: 32px !important;
+          line-height: 32px !important;
+        }
+      }
+
+      /* ANDROID CENTER FIX */
+      div[style*="margin: 16px 0;"] {
+        margin: 0 !important;
+      }
+    </style>
+  </head>
+
+  <body
+    style="
+      background-color: #f4f4f4;
+      margin: 0 !important;
+      padding: 0 !important;
+    "
+  >
+    <!-- HIDDEN PREHEADER TEXT -->
+    <div
+      style="
+        display: none;
+        font-size: 1px;
+        color: #fefefe;
+        line-height: 1px;
+        font-family: 'Lato', Helvetica, Arial, sans-serif;
+        max-height: 0px;
+        max-width: 0px;
+        opacity: 0;
+        overflow: hidden;
+      "
+    >
+      We're thrilled to have you here! Get ready to dive into your new account.
     </div>
+    <table
+      style="margin-bottom: 30px"
+      border="0"
+      cellpadding="0"
+      cellspacing="0"
+      width="100%"
+    >
+      <!-- LOGO -->
+      <tr>
+        <td bgcolor="#191919" align="center">
+          <table
+            border="0"
+            cellpadding="0"
+            cellspacing="0"
+            width="100%"
+            style="max-width: 800px"
+          >
+            <tr>
+              <td
+                align="center"
+                valign="top"
+                style="padding: 40px 10px 40px 10px"
+              ></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#191919" align="center" style="padding: 0px 10px 0px 10px">
+          <table
+            border="0"
+            cellpadding="0"
+            cellspacing="0"
+            width="100%"
+            style="max-width: 800px"
+          >
+            <tr>
+              <td
+                bgcolor="#ffffff"
+                align="center"
+                valign="top"
+                style="
+                  padding: 40px 20px 20px 20px;
+                  border-radius: 4px 4px 0px 0px;
+                  color: #111111;
+                  font-family: 'Lato', Helvetica, Arial, sans-serif;
+                  font-size: 48px;
+                  font-weight: 400;
+                  letter-spacing: 4px;
+                  line-height: 48px;
+                "
+              >
+                <h1 style="font-size: 48px; font-weight: 400; margin: 2">
+                  Recruitments 2020
+                </h1>
+                <img
+                  src="https://raw.githubusercontent.com/ADG-VIT/IosFusion_Website2019/master/assets/ADG_logo_hr.png"
+                  width="80"
+                  height="80"
+                  style="display: block; border: 0px"
+                />
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td bgcolor="#f4f4f4" align="center" style="padding: 0px 10px 0px 10px">
+          <table
+            border="0"
+            cellpadding="0"
+            cellspacing="0"
+            width="100%"
+            style="max-width: 800px"
+          >
+            <tr>
+              <td
+                bgcolor="#ffffff"
+                align="left"
+                style="
+                  padding: 20px 30px 40px 30px;
+                  color: #666666;
+                  font-family: 'Lato', Helvetica, Arial, sans-serif;
+                  font-size: 18px;
+                  font-weight: 400;
+                  line-height: 25px;
+                "
+              >
+                <p style="margin: 0; text-align: center">
+                  We are here with the most awaited time of the year. Apple
+                  Developers Group presents the most diligent quest for its core
+                  committee members. Join the team of creative minds because
+                  great minds think alike. Coder or not, all you need is passion
+                  to compete in this technology driven world. If you think
+                  you’ve got this, we warmly invite you to join us!
+                </p>
+
+                <br />
+
+                <p style="margin: 0; text-align: center">
+                  Take the test on our web portal or on the
+                  <b>ADG-VIT</b> mobile applications
+                </p>
+
+                <div align="center">
+                  <a
+                    style="text-decoration: none"
+                    href="recruitments.adgvit.com"
+                  >
+                    <p
+                      style="
+                        width: min-content;
+                        border-radius: 50px;
+                        text-decoration: none;
+                        padding: 10px 15px;
+                        color: white;
+                        font-family: 'Lato', Helvetica, Arial, sans-serif;
+                        font-size: 20px;
+                        background-color: #027aff;
+                      "
+                    >
+                      recruitments.adgvit.com
+                    </p></a
+                  >
+                </div>
+
+                <p align="center">
+                  <a
+                    target="_blank"
+                    href="https://apps.apple.com/in/app/adg-vit/id1545733138"
+                  >
+                    <img
+                      src="https://raw.githubusercontent.com/ADG-VIT/Email-Script/master/appstore.png"
+                      width="100px"
+                  /></a>
+                  &ensp;
+                  <a
+                    target="_blank"
+                    href="https://play.google.com/store/apps/details?id=com.adgvit.externals"
+                  >
+                    <img
+                      src="https://raw.githubusercontent.com/ADG-VIT/Email-Script/master/playstore.png"
+                      width="100px"
+                    />
+                  </a>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td bgcolor="#ffffff" align="left">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td
+                      bgcolor="#ffffff"
+                      align="center"
+                      style="padding: 20px 30px 60px 30px"
+                    >
+                      <table border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                          <td align="center" style="border-radius: 3px">
+                            <img
+                              src="https://raw.githubusercontent.com/ADG-VIT/Email-Script/master/recruiting_now.png"
+                              width="500"
+                              height="500"
+                              style="display: block; border: 0px"
+                            />
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <!-- COPY -->
+            <tr>
+              <td
+                bgcolor="#ffffff"
+                align="left"
+                style="
+                  padding: 0px 30px 20px 30px;
+                  color: #666666;
+                  font-family: 'Lato', Helvetica, Arial, sans-serif;
+                  font-size: 18px;
+                  font-weight: 400;
+                  line-height: 25px;
+                "
+              >
+                <p style="margin: 0">
+                  Cheers,<br />Team Apple Developers Group
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td
+                bgcolor="#ffffff"
+                align="left"
+                style="
+                  padding: 0px 30px 40px 30px;
+                  border-radius: 0px 0px 4px 4px;
+                  color: #666666;
+                  font-family: 'Lato', Helvetica, Arial, sans-serif;
+                  font-size: 12px;
+                  font-weight: 400;
+                "
+              >
+                <p style="margin: 0">
+                  This email was sent from a notification-only address that
+                  cannot accept incoming email. Please do not reply to this
+                  message. <br /><br />Incase of any queries or discrepancies,
+                  please feel free to contact us at:
+                  <a href="mailto:appledevelopersgroup@gmail.com"
+                    >appledevelopersgroup@gmail.com</a
+                  >
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td
+          bgcolor="#f4f4f4"
+          align="center"
+          style="padding: 30px 10px 0px 10px"
+        >
+          <table
+            bgcolor="#191919"
+            cellpadding="0"
+            cellspacing="0"
+            width="100%"
+            style="max-width: 800px; border-radius: 5px"
+          >
+            <tr>
+              <td
+                align="center"
+                style="
+                  padding: 30px 30px 30px 30px;
+                  border-radius: 4px 4px 4px 4px;
+                  font-family: 'Lato', Helvetica, Arial, sans-serif;
+                  font-size: 18px;
+                  font-weight: 400;
+                  line-height: 25px;
+                "
+              >
+                <h2
+                  style="
+                    font-size: 20px;
+                    font-weight: 400;
+                    color: #ffff;
+                    margin: 0;
+                  "
+                >
+                  Need more help?
+                </h2>
+                <br />
+                <a
+                  style="
+                    font-size: 20px;
+                    font-family: Helvetica, Arial, sans-serif;
+                    color: #ffffff;
+                    display: inline-block;
+                  "
+                  href="https://www.facebook.com/vitios/"
+                  target="_blank"
+                  ><img
+                    src="https://raw.githubusercontent.com/ADG-VIT/ADG-Official-Website-2020/master/commonAssets/imgs/facebook-logo-min.png"
+                    style="
+                      width: 18px;
+                      height: 18px;
+                      float: left;
+                      overflow: hidden;
+                    "
+                /></a>
+                &emsp;
+                <a
+                  style="
+                    font-size: 20px;
+                    font-family: Helvetica, Arial, sans-serif;
+                    color: #ffffff;
+                    display: inline-block;
+                  "
+                  href="https://www.linkedin.com/company/adgvit/"
+                  target="_blank"
+                  ><img
+                    src="https://raw.githubusercontent.com/ADG-VIT/ADG-Official-Website-2020/master/commonAssets/imgs/linkedin-logo-min.png"
+                    style="
+                      width: 18px;
+                      height: 18px;
+                      float: left;
+                      overflow: hidden;
+                    "
+                /></a>
+                &emsp;
+                <a
+                  style="
+                    font-size: 20px;
+                    font-family: Helvetica, Arial, sans-serif;
+                    color: #ffffff;
+                    display: inline-block;
+                  "
+                  href="https://www.instagram.com/adgvit/"
+                  target="_blank"
+                  ><img
+                    src="https://raw.githubusercontent.com/ADG-VIT/ADG-Official-Website-2020/master/commonAssets/imgs/instagram-logo-min.png"
+                    style="
+                      width: 18px;
+                      height: 18px;
+                      float: left;
+                      overflow: hidden;
+                    "
+                /></a>
+                &emsp;
+                <a
+                  style="
+                    font-size: 20px;
+                    font-family: Helvetica, Arial, sans-serif;
+                    color: #ffffff;
+                    display: inline-block;
+                  "
+                  href="https://twitter.com/adgvit"
+                  target="_blank"
+                  ><img
+                    src="https://raw.githubusercontent.com/ADG-VIT/ADG-Official-Website-2020/master/commonAssets/imgs/twitter-2-min.png"
+                    style="
+                      width: 18px;
+                      height: 18px;
+                      float: left;
+                      overflow: hidden;
+                    "
+                /></a>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
   </body>
 </html>
+
 """
 
 # Turn into html MIMEText objects
