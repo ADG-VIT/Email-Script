@@ -13,9 +13,9 @@ password = input("Type your password and press enter:")
 message = MIMEMultipart("alternative")
 
 # ENTER SUBJECT OF MAIL
-message["Subject"] = "Christmas Surprise 🎅 🎄"
+message["Subject"] = "💥 Recruitments 2020 it is! 💥"
 
-message['From'] = formataddr(('Apple Developers Group VIT', sender_email))
+message['From'] = formataddr(('Apple Developers Group VIT', sender_email), 'Apple Developers Group VIT <noreply@adgvit.com>')
 
 # Create the HTML version of your message
 html = """\
