@@ -1,7 +1,9 @@
 import smtplib, ssl, csv 
 from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
+from email.mime.multipart import MIMEMultipart 
+from email.mime.base import MIMEBase 
 from email.utils import formataddr
+from email import encoders 
 from time import sleep
 
 sender_email = input("Type your email and press enter:")
@@ -9,13 +11,6 @@ password = input("Type your password and press enter:")
 
 # sender_email = ''
 # password = ''
-
-message = MIMEMultipart("alternative")
-
-# ENTER SUBJECT OF MAIL
-message["Subject"] = "💥 Urgent: Round 2 of ADG's Recruitment Drive 💥"
-
-message['From'] = formataddr(('Apple Developers Group VIT', sender_email))
 
 # Create secure connection with server and send email
 context = ssl.create_default_context()
@@ -34,15 +29,34 @@ with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
 
             count = 0
 
-            for tech, design, management, name, regno, email, phone, githubLink, slot in reader:
+            for tech, design, management, name, regno, email, phone, slot, core in reader:
 
                 if(count >= 75):
                     sleep(150)
                     count = 0
 
                 count += 1
+
+                domain = ''
+
+                if(tech == "TRUE"):
+                  domain += 'Technical '
+                
+                if(design == "TRUE"):
+                  domain += 'Design '
+
+                if(management == "TRUE"):
+                  domain += 'Management'
                 
                 try:
+
+                    message = MIMEMultipart("alternative")
+
+                    # ENTER SUBJECT OF MAIL
+                    message["Subject"] = "💥 Urgent: Round 2 of ADG's Recruitment Drive 💥"
+
+                    message['From'] = formataddr(('Apple Developers Group VIT', sender_email))
+
                     # Create the HTML version of your message
                     html = """
                     <!DOCTYPE html>
@@ -268,12 +282,9 @@ with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
 
                                       We are pleased to inform you that, you have qualified for the
                                       final round for
-                                      <span class="custom">{}</span> domain(s) of
-                                      our recruitment process.<br /><br />
+                                      """
 
-                                      Refer to the slot details below:<br />
-                                      Date:<span class="custom">{}</span><br />
-                                      Time slot:<span class="custom">{}</span><br />
+                    html3="""
                                       Discord Server:
                                       <a
                                         href="https://discord.com/invite/NFekVBVMGQ"
@@ -286,8 +297,6 @@ with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
                                       All the best!!<br> Be there as we unleash the hidden talent in
                                       you!
                                     </p>
-
-                                    <br />
                                   </td>
                                 </tr>
                                 <tr>
@@ -303,7 +312,7 @@ with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
                                             <tr>
                                               <td align="center" style="border-radius: 3px">
                                                 <img
-                                                  src="https://raw.githubusercontent.com/ADG-VIT/Email-Script/master/round2.png"
+                                                  src="https://raw.githubusercontent.com/ADG-VIT/Email-Script/master/round2.jpeg"
                                                   width="500"
                                                   height="500"
                                                   style="display: block; border: 0px"
@@ -482,8 +491,35 @@ with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
                       </body>
                     </html>
                     """
+
+                    # open the file to be sent  
+                    filename = "Discord- Guidebook.pdf"
+                    attachment = open("Discord- Guidebook.pdf", "rb") 
+                      
+                    # instance of MIMEBase and named as p 
+                    p = MIMEBase('application', 'octet-stream') 
+                      
+                    # To change the payload into encoded form 
+                    p.set_payload((attachment).read()) 
+                      
+                    # encode into base64 
+                    encoders.encode_base64(p) 
+                      
+                    p.add_header('Content-Disposition', "attachment; filename= %s" % filename) 
+                      
+                    # attach the instance 'p' to instance 'msg' 
+                    message.attach(p) 
+
+                    html2= """      
+                          <span class="custom">{}</span> domain(s) of
+                          our recruitment process.<br /><br />
+
+                          Refer to the slot details below:<br />
+                          Slot: <span class="custom">{}</span><br />
+                          """.format(domain, slot)
+                    
                     # Turn into html MIMEText objects
-                    part = MIMEText(html, "html")
+                    part = MIMEText(html + html2 + html3, "html")
 
                     # Add HTML part to MIMEMultipart message
                     message.attach(part)
@@ -500,5 +536,3 @@ with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
                     print(count, 'Unsuccessful', email)
                     sleep(150)
                     count = 0
-
-        
